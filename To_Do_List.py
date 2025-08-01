@@ -2,10 +2,12 @@
 print("Bem vindo a sua Lista de Afazeres!")
 lista_afazeres = []
 while True:
-    afazer = input("""""Você deseja o que da lista?: 
-    -adicionar,
-    -retirar
-    -mostrar """)
+    afazer = input("""Você deseja o que da lista?: 
+    | -adicionar
+    | -retirar
+    | -mostrar 
+    | -sair
+    """)
     if afazer.lower() == "adicionar":
         
         tarefa = input("Digite a tarefa que deseja adicionar: ")
@@ -28,3 +30,8 @@ while True:
                 print(f"- {tarefa}")
         else:
             print("Sua lista de afazeres está vazia.")
+    elif afazer.lower() == "sair":
+        print("Saindo da sua lista de afazeres. Até logo!")
+        break
+    else:
+        print("Opção inválida. Por favor, escolha uma opção das opções descritas.")
