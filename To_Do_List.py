@@ -2,11 +2,13 @@
 print("Bem vindo a sua Lista de Afazeres!")
 lista_afazeres = []
 while True:
-    afazer = input("""Você deseja o que da lista?: 
-    | -adicionar
-    | -retirar
-    | -mostrar 
-    | -sair
+    afazer = input("""Você deseja o que da lista?:
+    ---------------------
+    | -adicionar        |
+    | -retirar          |
+    | -mostrar          |
+    | -sair             |
+    ---------------------
     """)
     if afazer.lower() == "adicionar":
         
