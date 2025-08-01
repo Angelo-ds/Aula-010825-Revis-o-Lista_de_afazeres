@@ -1,14 +1,30 @@
 #Lista de afazeres para revisão de python pós férias
 print("Bem vindo a sua Lista de Afazeres!")
+lista_afazeres = []
 while True:
-    lista_afazeres = []
-    afazer = input("Você deseja adicionar, retirar algo da lista, ou mostrar o que tem na lista?:  ")
+    afazer = input("""""Você deseja o que da lista?: 
+    -adicionar,
+    -retirar
+    -mostrar """)
     if afazer.lower() == "adicionar":
+        
         tarefa = input("Digite a tarefa que deseja adicionar: ")
         lista_afazeres.append(tarefa)
         print(f"Tarefa '{tarefa}' adicionada com sucesso!")
+
     elif afazer.lower() == "retirar":
+
         tarefa = input("Digite a tarefa que deseja retirar: ")
-    print(f"Tarefa '{tarefa}' retirada com sucesso!")
-    else:
-        print("Opção inválida. Por favor, digite 'adicionar' ou 'retirar'.")
+        if tarefa in lista_afazeres:
+            lista_afazeres.remove(tarefa)
+            print(f"Tarefa '{tarefa}' retirada com sucesso!")
+
+        else:
+            print(f"Tarefa '{tarefa}' não encontrada na lista.")
+    elif afazer.lower() == "mostrar":
+        if lista_afazeres:
+            print("Lista de Afazeres:")
+            for tarefa in lista_afazeres:
+                print(f"- {tarefa}")
+        else:
+            print("Sua lista de afazeres está vazia.")
