@@ -1,14 +1,16 @@
 #Lista de afazeres para revisão de python pós férias
 print("Bem vindo a sua Lista de Afazeres!")
 lista_afazeres = []
+Tarefas_concluidas = []
 while True:
     afazer = input("""Você deseja o que da lista?:
-    ---------------------
-    | -adicionar        |
-    | -retirar          |
-    | -mostrar          |
-    | -sair             |
-    ---------------------
+    ----------------------------
+    | -adicionar               |
+    | -retirar                 |
+    | -mostrar                 |
+    | -marcar como concluido   |
+    | -sair                    |
+    ----------------------------
     """)
     if afazer.lower() == "adicionar":
         
@@ -25,13 +27,36 @@ while True:
 
         else:
             print(f"Tarefa '{tarefa}' não encontrada na lista.")
+
     elif afazer.lower() == "mostrar":
-        if lista_afazeres:
-            print("Lista de Afazeres:")
-            for tarefa in lista_afazeres:
-                print(f"- {tarefa}")
+        mostrar = input("Qual lista deseja Ver? (afazeres/concluidas): ")
+
+        if mostrar.lower() == "afazeres":
+            if lista_afazeres:
+                if len(lista_afazeres) == 0:
+                    print("Sua lista de afazeres está vazia.")
+                else:
+                    print("Tarefas Pendentes:")
+                    for tarefa in lista_afazeres:
+                        print(f"[ ] {tarefa}")
+
+        elif mostrar.lower() == "concluidas":
+            if Tarefas_concluidas:
+                print("Tarefas Concluídas:")
+                for tarefa in Tarefas_concluidas:
+                    print(f"[X] {tarefa}")
+        else:
+            print("Você não tem tarefas concluídas.")
+
+    elif afazer.lower() == "marcar como concluido":
+        tarefa = input("Digite a tarefa que deseja marcar como concluída: ")
+        if tarefa in lista_afazeres:
+            lista_afazeres.remove(tarefa)
+            Tarefas_concluidas.append(tarefa)
+            print(f"[X] {tarefa} - Concluída")
         else:
             print("Sua lista de afazeres está vazia.")
+
     elif afazer.lower() == "sair":
         print("Saindo da sua lista de afazeres. Até logo!")
         break
