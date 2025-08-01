@@ -1,4 +1,5 @@
 #Lista de afazeres para revisão de python pós férias
+
 import time
 print("Bem vindo a sua Lista de Afazeres!")
 lista_afazeres = []
