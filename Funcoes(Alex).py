@@ -7,4 +7,14 @@ class Tarefa:
         self.lista_afazeres.append(tarefa)
 
     def listar_tarefas(self):
+        countdown = 0
+        for tarefa in self.lista_afazeres:
+            print(f"{countdown}-{tarefa}")
+            countdown += 1
+    
+    def excluir_tarefas(self):
+        
+    
+
+
         
