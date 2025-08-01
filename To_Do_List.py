@@ -12,7 +12,7 @@ while True:
     | -retirar                 |
     | -mostrar                 |
     | -marcar como concluido   |
-    | -sair                    |
+    | -sair                    |   
     ----------------------------
     """)
     time.sleep(1)
