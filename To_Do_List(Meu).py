@@ -49,15 +49,17 @@ while True:
                     contador = 0 
                     for tarefa in lista_afazeres:
                         contador += 1
-                        print(f" [ ] {tarefa}")
+                        print(f"{contador}-[] {tarefa}")
 
         elif mostrar.lower() == "concluidas":
             if len(Tarefas_concluidas) == 0:
                 print("Você não tem tarefas concluídas.")
             else:
                 print("Tarefas Concluídas:")
+                contador = 0
                 for tarefa in Tarefas_concluidas:
-                    print(f"[X] {tarefa}")
+                    contador +=1
+                    print(f"{contador}-[X] {tarefa}")
         else:
             print("Você não tem tarefas concluídas.")
         
@@ -65,14 +67,18 @@ while True:
             if len(lista_afazeres) == 0 and len(Tarefas_concluidas) == 0:
                 print("todas as suas listas estão vazias.")
             else:
-
+                contador = 0
                 print("Tarefas Pendentes:")
                 for tarefa in lista_afazeres:
-                    print(f" [ ] {tarefa}")
+                    contador +=1
+                    print(f"{contador}-{tarefa}")
+
 
                 print("Tarefas Concluídas:")
-                for tarefa in Tarefas_concluidas:                   
-                    print(f" [X] {tarefa}")
+                for tarefa in Tarefas_concluidas:
+                    contador +=1
+                    print(f"{contador}-[X]{tarefa}")
+
 
     elif afazer.lower() == "marcar como concluido":
         tarefa = input("Digite a tarefa que deseja marcar como concluída: ")
