@@ -1,9 +1,10 @@
 #Lista de afazeres para revisão de python pós férias
-
+import funcao_para_salvar_a_lista_meu as salvar_lista
 import time
 print("Bem vindo a sua Lista de Afazeres!")
 lista_afazeres = []
 Tarefas_concluidas = []
+
 
 while True:
     time.sleep(1)
@@ -18,14 +19,18 @@ while True:
     """)
     time.sleep(1)
     if afazer.lower() == "adicionar":
-        
+
         tarefa = input("Digite a tarefa que deseja adicionar: ")
         lista_afazeres.append(tarefa)
+
+        #Essa linha de código é para o banco de dados.
+        salvar_lista.funcao_bloco(tarefa) #esse chama a função que faz a mágica
+
         print(f"Tarefa '{tarefa}' adicionada com sucesso!")
 
     elif afazer.lower() == "retirar":
 
-        tarefa = input("Digite a tarefa que deseja retirar: ")
+        tarefa = input("Digite a tarefa que deseja remover: ")
         if tarefa in lista_afazeres:
             lista_afazeres.remove(tarefa)
             print(f"Tarefa '{tarefa}' retirada com sucesso!")
@@ -41,8 +46,10 @@ while True:
                     print("Sua lista de afazeres está vazia.")
                 else:
                     print("Tarefas Pendentes:")
+                    contador = 0 
                     for tarefa in lista_afazeres:
-                        print(f"[ ] {tarefa}")
+                        contador += 1
+                        print(f" [ ] {tarefa}")
 
         elif mostrar.lower() == "concluidas":
             if len(Tarefas_concluidas) == 0:
@@ -58,12 +65,14 @@ while True:
             if len(lista_afazeres) == 0 and len(Tarefas_concluidas) == 0:
                 print("todas as suas listas estão vazias.")
             else:
+
                 print("Tarefas Pendentes:")
                 for tarefa in lista_afazeres:
-                    print(f"[ ] {tarefa}")
+                    print(f" [ ] {tarefa}")
+
                 print("Tarefas Concluídas:")
-                for tarefa in Tarefas_concluidas:
-                    print(f"[X] {tarefa}")
+                for tarefa in Tarefas_concluidas:                   
+                    print(f" [X] {tarefa}")
 
     elif afazer.lower() == "marcar como concluido":
         tarefa = input("Digite a tarefa que deseja marcar como concluída: ")
