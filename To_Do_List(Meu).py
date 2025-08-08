@@ -24,7 +24,7 @@ while True:
         lista_afazeres.append(tarefa)
 
         #Essa linha de código é para o banco de dados.
-        salvar_lista.funcao_bloco(tarefa) #esse chama a função que faz a mágica
+        salvar_lista.tarefas_pendentes(tarefa) #esse chama a função que faz a mágica
 
         print(f"Tarefa '{tarefa}' adicionada com sucesso!")
 
@@ -46,20 +46,8 @@ while True:
                     print("Sua lista de afazeres está vazia.")
                 else:
                     print("Tarefas Pendentes:")
-                    contador = 0 
-                    for tarefa in lista_afazeres:
-                        contador += 1
-                        print(f"{contador}-[] {tarefa}")
+                    salvar_lista.ler_bloco_notas()
 
-        elif mostrar.lower() == "concluidas":
-            if len(Tarefas_concluidas) == 0:
-                print("Você não tem tarefas concluídas.")
-            else:
-                print("Tarefas Concluídas:")
-                contador = 0
-                for tarefa in Tarefas_concluidas:
-                    contador +=1
-                    print(f"{contador}-[X] {tarefa}")
         else:
             print("Você não tem tarefas concluídas.")
         
@@ -83,9 +71,8 @@ while True:
     elif afazer.lower() == "marcar como concluido":
         tarefa = input("Digite a tarefa que deseja marcar como concluída: ")
         if tarefa in lista_afazeres:
-            lista_afazeres.remove(tarefa)
-            Tarefas_concluidas.append(tarefa)
-            print(f"[X] {tarefa} - Concluída")
+            salvar_lista.tarefas_feitas(tarefa,Tarefas_concluidas)
+
         else:
             print("Sua lista de afazeres está vazia.")
 
